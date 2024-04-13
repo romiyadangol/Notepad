@@ -28,11 +28,20 @@ class TextForm extends React.Component{
             text: this.state.text.toLowerCase()
         });
     };
+    handleClickSpeak = () => {
+        const msg = new SpeechSynthesisUtterance(this.state.text);
+        speechSynthesis.speak(msg);
+    };
+    handleClickClear = () => {
+        this.setState({
+            text: ''
+        });
+    };
 
     render(){
         return(
             <div>
-                <textarea className="form-control mb-2" rows="8" value={this.state.text}  onChange={this.handleChange}></textarea>
+                <textarea className="form-control mb-2" rows="20" value={this.state.text}  onChange={this.handleChange}></textarea>
                 <div className='img-wrapper'>
                 <img src={Ucase} onClick={this.handleClickUppercase} alt='Uppercase'/>
                 <img src={Lcase} onClick={this.handleClickLowercase} alt='Lowercase'/>
