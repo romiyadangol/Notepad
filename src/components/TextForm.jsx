@@ -4,6 +4,9 @@ import Ucase from '../assets/upper.png';
 import Lcase from '../assets/lower.png';
 import speak from '../assets/sound.png';
 import clear from '../assets/clear.png';
+import bold from '../assets/bold.png';
+import italic from '../assets/italic.png';
+import underline from '../assets/underline.png';
 
 class TextForm extends React.Component{
     constructor(props){
@@ -37,6 +40,16 @@ class TextForm extends React.Component{
             text: ''
         });
     };
+    handleClickBold = () => {
+        this.setState({
+            text: this.state.text.bold()
+        });
+    };
+    handleClickItalic = () => {
+        this.setState({
+            text: this.state.text.italic()
+        });
+    };
 
     render(){
         return(
@@ -47,6 +60,10 @@ class TextForm extends React.Component{
                 <img src={Lcase} onClick={this.handleClickLowercase} alt='Lowercase'/>
                 <img src={speak} onClick={this.handleClickSpeak} alt='Speak'/>
                 <img src={clear} onClick={this.handleClickClear} alt='Clear'/>
+                <img src={bold} onClick={this.handleClickBold} alt='bold'/>
+                <img src={italic} onClickitalic={this.handleClickItalic} alt='italic'/>
+                <img src={underline} onClick={this.handleClickUnderline} alt='underline'/>
+
                 </div>
             </div>
         );
